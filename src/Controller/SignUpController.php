@@ -40,6 +40,12 @@ class SignUpController
 
         $email = $data['email'] ?? '';
         $plainPassword = $data['password'] ?? '';
+        $username = $data['username'] ?? '';
+        $name = $data['name'] ?? '';
+        $surname = $data['surname'] ?? '';
+        $date_de_naissance = isset($data['date_de_naissance']) ? new \DateTime($data['date_de_naissance']) : null;
+        $phone = $data['phone'] ?? '';
+        $address = $data['address'] ?? '';
 
         $existingUser = $this->userRepository->findOneBy(['email' => $email]);
         if ($existingUser) {
@@ -53,6 +59,12 @@ class SignUpController
         $user->setPassword(
             $this->passwordHasher->hashPassword($user, $plainPassword)
         );
+        $user->setUsername($username);
+        $user->setName($name);
+        $user->setSurname($surname);
+        $user->setDateDeNaissance($date_de_naissance);
+        $user->setPhone($phone);
+        $user->setAddress($address);
 
         $errors = $this->validator->validate($user);
         if (count($errors) > 0) {
