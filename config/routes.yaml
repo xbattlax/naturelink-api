@@ -16,3 +16,8 @@ register:
     path: /register
     controller: App\Controller\SignUpController::register
     methods: [POST]
+
+getallarticle: 
+    path: /public/articles
+    controller : App\Controller\GetAllArticlesController::getAllArticles
+    methods: [GET]

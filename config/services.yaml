@@ -27,5 +27,16 @@ services:
     app.jwt_token_authenticator:
         class: App\Security\Guard\JWTTokenAuthenticator
         parent: lexik_jwt_authentication.security.guard.jwt_token_authenticator
+
+    App\Controller\GetAllArticlesController:
+        tags: ['controller.service_arguments']
+
+
+    App\Services\JWT\EmailPayloadFactory:
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: __invoke }
+
+
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

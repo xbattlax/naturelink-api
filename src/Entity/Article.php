@@ -8,8 +8,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Get;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+#[GetCollection (security: "is_granted('IS_AUTHENTICATED_ANONYMOUSLY')")]
+#[Get]
 #[ApiResource]
 class Article
 {
