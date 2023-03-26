@@ -16,10 +16,10 @@ class Sommet
     private ?int $id = null;
 
     #[ORM\Column(type: "float", nullable: true)]
-    private ?string $lat = null;
+    private ?float $lat = null;
 
     #[ORM\Column(type: "float", nullable: true)]
-    private ?string $long = null;
+    private ?float $long = null;
 
     #[ORM\ManyToOne(inversedBy: 'sommets')]
     private ?Polygon $polygon = null;
@@ -34,7 +34,7 @@ class Sommet
         return $this->lat;
     }
 
-    public function setLat(?string $lat): self
+    public function setLat(?float $lat): self
     {
         $this->lat = $lat;
 
@@ -46,7 +46,7 @@ class Sommet
         return $this->long;
     }
 
-    public function setLong(?string $long): self
+    public function setLong(?float $long): self
     {
         $this->long = $long;
 

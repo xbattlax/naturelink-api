@@ -41,6 +41,9 @@ services:
 
     App\Controller\SavePolygonController:
         tags: ['controller.service_arguments']
+    
+    App\Controller\AddCommentController:
+        tags: ['controller.service_arguments']
 
 
 

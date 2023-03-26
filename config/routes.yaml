@@ -31,3 +31,13 @@ api_polygons_post:
     path: /api/polygon
     controller: App\Controller\SavePolygonController::savePolygon
     methods: POST
+
+api_comment_post:
+    path: /api/polygon
+    controller: App\Controller\AddCommentController::addComment
+    methods: POST
+
+getallarticlecomments: 
+    path: /public/articles/{id}/comment
+    controller : App\Controller\GetAllArticlesController::getArticleComments
+    methods: [GET]
