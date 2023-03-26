@@ -21,3 +21,13 @@ getallarticle:
     path: /public/articles
     controller : App\Controller\GetAllArticlesController::getAllArticles
     methods: [GET]
+
+api_polygons_get:
+    path: /public/polygons
+    controller: App\Controller\PolygonController::getAllPolygons
+    methods: GET
+
+api_polygons_post:
+    path: /api/polygon
+    controller: App\Controller\SavePolygonController::savePolygon
+    methods: POST

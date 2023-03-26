@@ -35,6 +35,12 @@ services:
     App\Services\JWT\EmailPayloadFactory:
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: __invoke }
+    
+    App\Controller\PolygonController:
+        tags: ['controller.service_arguments']
+
+    App\Controller\SavePolygonController:
+        tags: ['controller.service_arguments']
 
 
 

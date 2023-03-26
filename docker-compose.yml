@@ -14,6 +14,22 @@ services:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
       # - ./docker/db/data:/var/lib/postgresql/data:rw
 ###< doctrine/doctrine-bundle ###
+  api:
+    build:
+      context: .
+      args:
+        APP_ENV: dev
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: "pgsql://${POSTGRES_USER:-app}:${POSTGRES_PASSWORD:-!ChangeMe!}@database:5432/${POSTGRES_DB:-app}?serverVersion=${POSTGRES_VERSION:-15}"
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/app:rw
+      - ./var/cache:/var/www/app/var/cache:rw
+      - ./var/log:/var/www/app/var/log:rw
+
 
 volumes:
 ###> doctrine/doctrine-bundle ###
