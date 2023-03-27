@@ -41,3 +41,8 @@ getallarticlecomments:
     path: /public/articles/{id}/comment
     controller : App\Controller\GetAllArticlesController::getArticleComments
     methods: [GET]
+
+post_article:
+    path: /api/article/post
+    controller: App\Controller\ArticleController::postArticle
+    methods: POST
